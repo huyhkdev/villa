@@ -36,6 +36,8 @@ function App() {
         if (nextProgress >= 100) {
           clearInterval(timer)
           setIsLoading(false)
+          // Scroll to top when loading finishes
+          window.scrollTo({ top: 0, behavior: 'smooth' })
           return 100
         }
         return nextProgress
