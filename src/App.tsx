@@ -89,9 +89,9 @@ function App() {
                 />
               </div>
               <motion.img
-                src="/pet.png"
+                src="/pet.gif"
                 alt="Pet"
-                className="pointer-events-none absolute -top-[26px] left-0 h-10 w-auto select-none drop-shadow"
+                className="pointer-events-none absolute -top-[26px] left-0 h-10 w-auto select-none"
                 initial={{ left: '0%' }}
                 animate={{ left: `${loadingProgress}%` }}
                 transition={{ type: 'spring', stiffness: 120, damping: 20, mass: 0.4 }}
