@@ -1,5 +1,6 @@
 import { motion, useScroll } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './App.css'
 
 const navItems = [
@@ -7,6 +8,7 @@ const navItems = [
   { name: 'Accommodation', href: '#' },
   { name: 'Services', href: '#' },
   { name: 'Gallery', href: '#' },
+  { name: 'Video', href: '#video' },
   { name: 'Contact', href: '#' },
 ]
 
@@ -15,6 +17,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [loadingProgress, setLoadingProgress] = useState(0)
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
   const { scrollY } = useScroll()
 
   useEffect(() => {
@@ -139,6 +143,12 @@ function App() {
               <motion.a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => {
+                  if (item.name === 'Video') {
+                    e.preventDefault()
+                    navigate('/video')
+                  }
+                }}
                 className={`text-sm font-medium transition-colors duration-300 ${
                   scrolled ? 'text-[#3C3B40] hover:text-[#8BC349]' : 'text-white hover:text-[#8BC349]'
                 }`}
@@ -168,12 +178,96 @@ function App() {
             </a>
             <button 
               onClick={() => setIsBookingModalOpen(true)}
-              className="rounded-full bg-[#8BC349] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#7AB239] hover:scale-105"
+              className="hidden sm:block rounded-full bg-[#8BC349] px-4 py-2 text-xs sm:px-6 sm:py-2.5 sm:text-sm font-semibold text-white transition-all duration-300 hover:bg-[#7AB239] hover:scale-105"
             >
               BOOK NOW
             </button>
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`md:hidden flex h-10 w-10 items-center justify-center rounded-lg transition-colors ${
+                scrolled ? 'text-[#3C3B40]' : 'text-white'
+              }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {isMobileMenuOpen ? (
+                  <>
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </>
+                ) : (
+                  <>
+                    <path d="M4 12h16" />
+                    <path d="M4 6h16" />
+                    <path d="M4 18h16" />
+                  </>
+                )}
+              </svg>
+            </button>
           </motion.div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <motion.div
+            className="md:hidden border-t border-gray-200/10"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className={`px-6 py-4 ${scrolled ? 'bg-white' : 'bg-black/30 backdrop-blur-lg'}`}>
+              <nav className="flex flex-col gap-4">
+                {navItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      if (item.name === 'Video') {
+                        e.preventDefault()
+                        navigate('/video')
+                      }
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className={`text-sm font-medium transition-colors duration-300 ${
+                      scrolled ? 'text-[#3C3B40] hover:text-[#8BC349]' : 'text-white hover:text-[#8BC349]'
+                    }`}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+                <a
+                  href="tel:+84236 3656 293"
+                  className={`text-sm font-medium transition-colors duration-300 ${
+                    scrolled ? 'text-[#3C3B40]' : 'text-white'
+                  }`}
+                >
+                  📞 +84 236 3656 293
+                </a>
+                <button 
+                  onClick={() => {
+                    setIsBookingModalOpen(true)
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className="w-full rounded-full bg-[#8BC349] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#7AB239]"
+                >
+                  BOOK NOW
+                </button>
+              </nav>
+            </div>
+          </motion.div>
+        )}
       </motion.header>
 
       {/* Hero Banner */}
@@ -193,10 +287,10 @@ function App() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex h-full items-center justify-center px-6">
+        <div className="relative z-10 flex h-full items-center justify-center px-4 sm:px-6">
           <div className="max-w-4xl text-center">
             <motion.h1
-              className="hero-title mb-6 text-5xl font-bold leading-tight text-white md:text-6xl lg:text-6xl"
+              className="hero-title mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white"
               initial={{ opacity: 0, y: 40 }}
               animate={!isLoading ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
@@ -207,7 +301,7 @@ function App() {
             </motion.h1>
 
             <motion.p
-              className="mb-10 text-lg text-white/90 md:text-xl italic "
+              className="mb-6 sm:mb-10 text-sm sm:text-base md:text-lg lg:text-xl text-white/90 italic px-4"
               initial={{ opacity: 0, y: 30 }}
               animate={!isLoading ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
@@ -232,7 +326,7 @@ function App() {
           onClick={() => setIsBookingModalOpen(false)}
         >
           <motion.div
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-8 shadow-2xl"
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 sm:p-8 shadow-2xl"
             initial={{ scale: 0.9, y: 20 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
@@ -241,7 +335,7 @@ function App() {
             {/* Close Button */}
             <button
               onClick={() => setIsBookingModalOpen(false)}
-              className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600"
+              className="absolute right-4 top-4 sm:right-6 sm:top-6 flex h-8 w-8 items-center justify-center rounded-full text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -260,13 +354,13 @@ function App() {
             </button>
 
             {/* Header */}
-            <div className="mb-8">
-              <h2 className="mb-2 text-3xl font-bold text-[#3C3B40]">Book Your Stay</h2>
-              <p className="text-sm text-gray-600">Fill in the details below to reserve your room</p>
+            <div className="mb-6 sm:mb-8 pr-8">
+              <h2 className="mb-2 text-2xl sm:text-3xl font-bold text-[#3C3B40]">Book Your Stay</h2>
+              <p className="text-xs sm:text-sm text-gray-600">Fill in the details below to reserve your room</p>
             </div>
 
             {/* Form */}
-            <form className="space-y-6">
+            <form className="space-y-4 sm:space-y-6">
               {/* Room Selection */}
               <div>
                 <label htmlFor="room" className="mb-2 block text-sm font-semibold text-[#3C3B40]">
