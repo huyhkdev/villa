@@ -107,7 +107,7 @@ export default function VideoPresentation({ onClose }: VideoPresentationProps) {
           >
             {/* Pet Character */}
             <motion.div
-              className="mb-0 flex justify-center"
+              className="mb-0 flex justify-center overflow-hidden"
               initial={{ opacity: 0, y: -20, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
@@ -115,7 +115,7 @@ export default function VideoPresentation({ onClose }: VideoPresentationProps) {
               <img
                 src="/pet-video.png"
                 alt="Anis Villa Pet"
-                className="h-32 sm:h-40 md:h-48 w-auto object-contain drop-shadow-lg"
+                className="h-24 w-auto max-w-[120px] sm:h-32 sm:max-w-[160px] md:h-40 md:max-w-[200px] lg:h-48 lg:max-w-none object-contain drop-shadow-lg"
               />
             </motion.div>
 
