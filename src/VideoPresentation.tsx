@@ -120,7 +120,7 @@ export default function VideoPresentation({ onClose }: VideoPresentationProps) {
             </motion.div>
 
             <motion.h1
-              className="hero-title mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#3C3B40]"
+              className="hero-title mb-4 sm:mb-6 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#3C3B40]"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}

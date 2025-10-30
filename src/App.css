@@ -87,7 +87,7 @@ html {
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
   }
 }
 
