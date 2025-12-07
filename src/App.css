@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Barlow', sans-serif;
   color: #3C3B40;
   background-color: #FFFFFF;
 }
@@ -37,11 +37,21 @@ body {
 
 /* Hero Title */
 .hero-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* All Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', sans-serif;
+}
+
+/* Body text */
+body, p, span, div, a, li {
+  font-family: 'Barlow', sans-serif;
 }
 
 /* Smooth scrolling */
@@ -91,20 +101,85 @@ html {
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+/* Hide scrollbar but keep scroll behavior */
+html,
+body {
+  scrollbar-width: none; /* Firefox */
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
-::-webkit-scrollbar-thumb {
-  background: #8BC349;
-  border-radius: 5px;
+/* Swiper Navigation Arrows - Light Gray and Faded */
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(156, 163, 175, 0.5) !important;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #7AB239;
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 0.8;
+  color: rgba(156, 163, 175, 0.7) !important;
 }
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px;
+}
+
+/* Swiper Pagination Dots - Light Gray and Faded */
+.swiper-pagination-bullet {
+  background: rgba(156, 163, 175, 0.4) !important;
+  opacity: 0.6;
+  width: 8px;
+  height: 8px;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: rgba(156, 163, 175, 0.6) !important;
+  opacity: 0.8;
+}
+
+/* Ensure all Swiper slides have equal height */
+.accommodation-swiper .swiper-wrapper,
+.reviews-swiper .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.accommodation-swiper .swiper-slide,
+.reviews-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.accommodation-swiper .swiper-slide > div,
+.reviews-swiper .swiper-slide > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews-swiper .swiper-slide {
+  height: 250px;
+}
+
+.reviews-swiper .swiper-slide > div {
+  max-height: 250px;
+  overflow: hidden;
+}
+
+.review-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6;
+}
+
