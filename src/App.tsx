@@ -35,10 +35,10 @@ function App() {
 
   // Loading animation effect
   useEffect(() => {
-    const duration = 1500 // 1.5 seconds
+    const duration = 1000 // 1.5 seconds
     const interval = 50 // Update every 50ms
     const increment = 100 / (duration / interval)
-
+    
     const timer = setInterval(() => {
       setLoadingProgress(prev => {
         const nextProgress = prev + increment
@@ -122,10 +122,10 @@ function App() {
             </div>
             <div className="relative w-full">
               <div className="h-[1px] w-full overflow-hidden rounded-full bg-gray-100">
-                <motion.div
+              <motion.div
                   className="h-[1px] rounded-full bg-gradient-to-r from-[#8BC349] to-[#7AB239] shadow-sm"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${loadingProgress}%` }}
+                initial={{ width: 0 }}
+                animate={{ width: `${loadingProgress}%` }}
                   transition={{ type: 'spring', stiffness: 120, damping: 20, mass: 0.4 }}
                 />
               </div>
@@ -146,7 +146,7 @@ function App() {
       {/* Header */}
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[#313131] shadow-md' : 'bg-transparent'
-          }`}
+        }`}
         initial={{ y: -100 }}
         animate={!isLoading ? { y: 0 } : { y: -100 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -197,7 +197,7 @@ function App() {
                     : scrolled
                       ? 'text-white hover:text-[#8BC349]'
                       : 'text-white hover:text-[#8BC349]'
-                  }`}
+                }`}
                 initial={{ opacity: 0, y: -10 }}
                 animate={!isLoading ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
                 transition={{ delay: 0.1 + index * 0.1, duration: 0.3 }}
@@ -229,7 +229,7 @@ function App() {
             >
               BOOK NOW
             </motion.a>
-
+            
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -297,7 +297,7 @@ function App() {
                     className={`text-sm font-medium transition-colors duration-300 ${activeSection === item.href.replace('#', '')
                         ? 'text-[#8BC349]'
                         : 'text-white hover:text-[#8BC349]'
-                      }`}
+                    }`}
                   >
                     {item.name}
                   </a>
@@ -367,7 +367,7 @@ function App() {
         {/* Scroll Indicator removed */}
       </section>
 
-
+ 
 
       {/* About / Our Story */}
       <section id="about" className="relative bg-[#F7F4EB] px-4 sm:px-6 py-12 md:py-[50px] overflow-hidden">
@@ -377,7 +377,7 @@ function App() {
 
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
-            <motion.div
+        <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -404,7 +404,7 @@ function App() {
                   color: '#3C3B40',
                 }}
               >
-                Nestled in the heart of nature, Anis Villa was born from a vision to create a sanctuary where modern comfort meets timeless tranquility.
+                Anis Villa was created from a simple wish: to offer a place where people can temporarily step away from the rush of daily life, return to nature, and find balance for the mind.
               </p>
               <p
                 className="mb-4 md:mb-6 leading-relaxed"
@@ -413,7 +413,7 @@ function App() {
                   color: '#3C3B40',
                 }}
               >
-                We believe in sustainable living, mindful experiences, and the healing power of nature. Every detail is crafted to help you reconnect with what truly matters.
+                We chose Biophilic Design as the soul of the project - prioritizing natural light, fresh air, wooden materials, and a seamless connection between people and greenery. Every corner at Anis is designed to help you take a deep breath and slow down.
               </p>
               <p
                 className="mb-4 md:mb-6 leading-relaxed"
@@ -422,7 +422,7 @@ function App() {
                   color: '#3C3B40',
                 }}
               >
-                Our philosophy is built on five core values: Connection, Sustainability, Healing, Mindfulness & Respect, and Purposeful Creativity. These principles guide every aspect of your stay, from the locally sourced materials in our architecture to the thoughtfully curated experiences we offer.
+                The organic garden is more than just a landscape; it is an experience. Here, guests can tend to plants, harvest vegetables, and discover the story of each plant through QR codes placed directly in the garden. We believe that touching nature gently brings calmness to the soul.
               </p>
               <p
                 className="mb-4 md:mb-6 leading-relaxed"
@@ -431,7 +431,16 @@ function App() {
                   color: '#3C3B40',
                 }}
               >
-                Whether you seek a peaceful retreat, an inspiring workspace, or a meaningful connection with nature, Anis Villa provides the perfect setting. Our team is dedicated to ensuring your stay is not just comfortable, but transformative.
+                Anis Villa is created not just for relaxation, but for connection - between humans and nature, among family members, and with fellow guests through meaningful shared experiences.
+              </p>
+              <p
+                className="mb-4 md:mb-6 leading-relaxed"
+                style={{
+                  fontSize: '14px',
+                  color: '#3C3B40',
+                }}
+              >
+                From the spaces and layouts to the services, everything is meticulously crafted. We believe that such care creates a complete and fulfilling experience - the value that Anis Villa always pursues.
               </p>
               <p
                 className="leading-relaxed"
@@ -440,7 +449,7 @@ function App() {
                   color: '#3C3B40',
                 }}
               >
-                Join us in this journey of discovery, where every moment is an opportunity to embrace tranquility, find inspiration, and create lasting memories in harmony with nature.
+                Anis Villa is more than a villa. It is a journey of living slowly, living green, and savoring each moment fully. We look forward to sharing this journey with you!
               </p>
             </motion.div>
             <motion.div
@@ -452,11 +461,11 @@ function App() {
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-[#8BC349] via-[#7AB239] to-[#8BC349]  blur opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
               <div className="relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
-                  alt="Villa exterior"
+              <img
+                src="/ourstory.jpg"
+                alt="Villa exterior"
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
-                />
+              />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               </div>
             </motion.div>
@@ -510,16 +519,16 @@ function App() {
                   fontFamily: '"Barlow", sans-serif',
                 }}
               >
-                The resort houses 33 exclusive villas designed for optimal privacy and comfort. All Villas are well design with highest comfort and completed by luxury amenities. Taste of traditional Balinese Design and concepts.
+               Anis Villa features five uniquely themed villas, each offering a distinct emotional and sensory experience. Inspired by local nature and agriculture, every villa tells its own story through a representative plant, enhanced by a 3D QR code system that lets guests explore the plant’s story interactively and educationally.
               </p>
             </div>
           </motion.div>
 
-          <motion.div
+              <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+                viewport={{ once: true }}
           >
             <Swiper
               modules={[Pagination, Navigation, Autoplay]}
@@ -544,45 +553,40 @@ function App() {
             >
               {[
                 {
-                  name: 'One Bedroom Private Pool Villas',
-                  image: 'photo-1582268611958-ebfd161ef9cf',
-                  description: 'Experience luxury and tranquility in our One Bedroom Private Pool Villas. As the second-villa category, these exclusive retreats offer all the elegance of our Garden View Villas, with the added indulgence of a private pool.'
+                  name: 'Healing Villa',
+                  image: '/HealingVilla.jpg',
+                  description: 'This 3-bedroom space is designed to wash away fatigue and restore the soul to balance. Featuring a soft green palette with bamboo and wooden furniture surrounded by lush greenery, it creates a gentle and serene atmosphere. The soothing scent of star anise and lavender enhances relaxation, while pennywort symbolizes healing and renewal, completing the restorative experience.'
                 },
                 {
-                  name: 'Beach Front Sunrise Two Bedroom Pool Villa',
-                  image: 'photo-1564013799919-ab600027ffc6',
-                  description: 'The Beach Front Sunrise Two Bedroom Pool Villa at ANIS VILLA Resort is a sophisticated beachfront haven designed for families or couples seeking a spacious and private retreat. Set right on the beach, this villa offers sweeping views of the ocean, blending luxury with the beauty of Nusa Penida\'s stunning coastline.'
+                  name: 'Awakening Villa',
+                  image: '/AwakeningVilla.jpg',
+                  description: 'This 3-bedroom space is designed to awaken inspiration and clarity of mind. Featuring beige and olive green tones with abundant natural light, it creates a bright and uplifting atmosphere. The fresh scents of rosemary and green tea enhance alertness and focus, while basil symbolizes concentration and mental clarity, completing a truly invigorating experience.'
                 },
                 {
-                  name: 'Beach Front Signature President Three Bedroom Pool Villa',
-                  image: 'photo-1613490493576-7fde63acd811',
-                  description: 'Step into island elegance with our Beach Front Signature President Three Bedroom Pool Villa sanctuary designed for families or groups seeking refined comfort and privacy.'
+                  name: 'Energy Villa',
+                  image: '/EnergyVilla.jpg',
+                  description: 'This 1-bedroom space is a lively retreat that revitalizes both mind and body. Featuring a warm yellow and light brown palette with radiant lighting, it creates an energizing and uplifting atmosphere. The sweet scents of orange and lemongrass enhance freshness and motivation, while red amaranth symbolizes strength and resilience, completing a truly invigorating experience.'
                 },
                 {
-                  name: 'Garden View Villa',
-                  image: 'photo-1512917774080-9991f1c4c750',
-                  description: 'Surrounded by lush tropical gardens, our Garden View Villas offer a serene escape with beautiful natural surroundings. These elegantly designed villas provide comfort and tranquility in a peaceful setting.'
+                  name: 'Harmony Villa',
+                  image: '/HarmonyVilla.jpg',
+                  description: 'This 1-bedroom space is a place where people and nature unite in balance. Featuring earthy brown, cream, and green tones with raw wood textures, it creates a harmonious and relaxing atmosphere. The soothing scents of sandalwood and mint enhance tranquility, while celery symbolizes freshness and inner balance, completing a restorative experience.'
                 },
                 {
-                  name: 'Ocean View Villa',
-                  image: 'photo-1600596542815-ffad4c1539a9',
-                  description: 'Wake up to breathtaking ocean views in our Ocean View Villas. These spacious retreats feature large windows and private balconies, allowing you to enjoy the stunning coastal scenery from the comfort of your villa.'
-                },
-                {
-                  name: 'Luxury Pool Villa',
-                  image: 'photo-1600607687920-4e2a09cf159d',
-                  description: 'Indulge in ultimate luxury with our Luxury Pool Villas. Featuring private infinity pools, premium amenities, and exquisite design, these villas offer an unparalleled experience of comfort and sophistication.'
+                  name: 'Clarity Villa',
+                  image: '/ClarityVilla.jpg',
+                  description: 'This 1-bedroom space is a pure and serene retreat that inspires hope and new beginnings. Featuring a white, cream, and light yellow palette with large glass windows, it creates a light, clear, and renewing atmosphere. Sprouts symbolize purity and fresh starts, completing an uplifting and restorative experience.'
                 },
               ].map((villa) => (
                 <SwiperSlide key={villa.name} className="h-auto">
                   <div className="bg-white overflow-hidden group h-full flex flex-col">
-                    <div className="relative h-64 overflow-hidden">
-                      <img
-                        src={`https://images.unsplash.com/${villa.image}?w=800`}
-                        alt={villa.name}
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                        src={villa.image.startsWith('/') ? villa.image : `https://images.unsplash.com/${villa.image}?w=800`}
+                    alt={villa.name}
                         className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
+                  />
+                </div>
                     <div className="p-6 flex-1 flex flex-col">
                       <h3
                         className="mb-4 font-bold"
@@ -614,10 +618,10 @@ function App() {
                         <span className="w-8 h-px bg-[#E8A87C]"></span>
                         DISCOVER MORE
                       </a>
-                    </div>
+                </div>
                   </div>
                 </SwiperSlide>
-              ))}
+            ))}
             </Swiper>
           </motion.div>
         </div>
@@ -657,47 +661,42 @@ function App() {
             >
               {[
                 {
-                  title: 'Activities & Cultural Exploration',
-                  desc: 'The resort is designed to be a destination, with curated day trips and activities that immerse guests in the island\'s unique culture and natural beauty. Staff, with their deep local knowledge, provide guidance on excursions that reflect the authentic essence of Nusa Penida, ensuring a memorable connection with the surroundings.',
-                  image: 'photo-1544367567-0f2fcb009e0b',
+                  title: 'Organic Farming',
+                  desc: 'Guests start their green journey with hands-on guidance in organic gardening—from selecting seeds and mixing soil to safe plant care techniques. Suitable for all ages, especially families with children, participants can take home a seed tray or small pot as a living souvenir.',
+                  image: '/w1.jpg',
                 },
                 {
-                  title: 'Morning Yoga',
-                  desc: 'Start your day with peaceful yoga sessions surrounded by nature. Our experienced instructors guide you through mindful practices that harmonize body and spirit.',
-                  image: 'photo-1544367567-0f2fcb009e0b',
+                  title: 'Cooking Class',
+                  desc: 'Guests hand-pick fresh ingredients from the garden and learn to prepare traditional Vietnamese dishes such as Bánh Xèo, Mì Quảng, fresh salads, and detox drinks. This farm-to-table experience deepens the connection between nature, food, and culture.',
+                  image: '/w2.jpg',
                 },
                 {
-                  title: 'Organic Garden',
-                  desc: 'Explore our sustainable garden where we grow fresh herbs, vegetables, and fruits. Learn about organic farming and harvest ingredients for your meals.',
-                  image: 'photo-1464226184884-fa280b87c399',
+                  title: 'Candle Making',
+                  desc: 'Guests create personalized scented candles using natural essential oils extracted from vegetables and herbs from the garden. Each candle is not only a handmade product but also carries the essence of nature, bringing a sense of calm and relaxation.',
+                  image: '/w3.jpg',
                 },
                 {
-                  title: 'Tea Meditation',
-                  desc: 'Experience the ancient art of mindful tea ceremony. Slow down, savor each moment, and find peace in the simple ritual of preparing and drinking tea.',
-                  image: 'photo-1564890369478-c89ca6d9cde9',
+                  title: 'Natural Soap Making',
+                  desc: 'Guests are guided to make handmade soaps using centella, aloe vera, and lemongrass essential oil. Each soap bar blends creativity, aesthetics, and wellness benefits, giving guests a deeper connection with nature.',
+                  image: '/w4.jpg',
                 },
                 {
-                  title: 'Private BBQ',
-                  desc: 'Enjoy exclusive barbecue dinners under the stars with locally sourced ingredients. Perfect for special occasions or intimate family gatherings.',
-                  image: 'photo-1555939594-58d7cb561ad1',
+                  title: 'Lip Balm Making',
+                  desc: 'In this workshop, guests learn to make safe and moisturizing lip balms from beetroot and beeswax. The experience combines creativity and knowledge of natural ingredients, allowing participants to craft unique personal care products.',
+                  image: '/w5.jpg',
                 },
                 {
-                  title: 'Bike Tours',
-                  desc: 'Discover the beauty of the surrounding countryside on our guided bike tours. Explore local villages, rice fields, and hidden scenic spots.',
-                  image: 'photo-1571068316344-75bc76f77890',
+                  title: 'Leaf Printing on Tote Bags',
+                  desc: 'Guests use leaves and printing tools to design unique patterns on white tote bags. Each tote bag reflects personal creativity and the inspiration drawn from nature, serving as a vivid keepsake of their Anis Villa journey.',
+                  image: '/w6.jpg',
                 },
-                {
-                  title: 'Art Workshops',
-                  desc: 'Express your creativity through local crafts and traditional art forms. Learn from skilled artisans and create your own unique souvenirs.',
-                  image: 'photo-1513364776144-60967b0f800f',
-                }
               ].map((exp) => (
                 <SwiperSlide key={exp.title}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
                     {/* Image Left */}
                     <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
                       <img
-                        src={`https://images.unsplash.com/${exp.image}?w=1200`}
+                        src={exp.image}
                         alt={exp.title}
                         className="w-full h-full object-cover"
                       />
@@ -740,7 +739,7 @@ function App() {
                         {exp.desc}
                       </p>
                       <a
-                        href="#"
+                        href="#contact"
                         className="text-[#E8A87C] uppercase tracking-wide text-sm font-medium hover:underline inline-flex items-center gap-2"
                         style={{
                           fontFamily: '"Barlow", sans-serif',
@@ -897,11 +896,11 @@ function App() {
           </motion.div>
 
           {/* Team Photo */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+                viewport={{ once: true }}
             className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden"
           >
             <img
@@ -909,18 +908,18 @@ function App() {
               alt="Our Dedicated Team"
               className="w-full h-full object-cover"
             />
-          </motion.div>
+        </motion.div>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="relative bg-white px-4 sm:px-6 py-8 md:py-[25px]">
         <div className="mx-auto max-w-7xl">
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-16 items-start"
           >
             {/* Left: Rating Summary */}
@@ -953,7 +952,7 @@ function App() {
                 Based on 51 reviews
               </p>
 
-            </div>
+                  </div>
 
             {/* Right: Reviews Carousel */}
             <div className="w-full lg:col-span-3">
@@ -1042,15 +1041,15 @@ function App() {
                           >
                             {review.time}
                           </p>
-                        </div>
+                </div>
                         <div className="relative">
                           <div className="w-6 h-6 rounded-full bg-[#8BC349] flex items-center justify-center">
                             <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.293 7.293l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 9.586l3.293-3.293a1 1 0 011.414 1.414z" />
                             </svg>
-                          </div>
-                        </div>
-                      </div>
+                  </div>
+                </div>
+                  </div>
                       <div className="flex gap-1 mb-3">
                         {[...Array(5)].map((_, i) => (
                           <div
@@ -1061,7 +1060,7 @@ function App() {
                         <svg className="w-4 h-4 text-blue-500 ml-1" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
-                      </div>
+                </div>
                       <p
                         className="mb-4 flex-1 review-text"
                         style={{
@@ -1082,7 +1081,7 @@ function App() {
                       >
                         Read more
                       </a>
-                    </div>
+          </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -1157,7 +1156,7 @@ function App() {
                 </svg>
                 info@anisvilla.com
               </p>
-            </div>
+        </div>
 
             {/* Right: Links & Social */}
             <div>
@@ -1184,8 +1183,8 @@ function App() {
                 GET DIRECTIONS
               </a>
               <div className="flex gap-3">
-                <a
-                  href="https://facebook.com"
+                <a 
+                  href="https://facebook.com" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all"
@@ -1195,8 +1194,8 @@ function App() {
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                   </svg>
                 </a>
-                <a
-                  href="https://instagram.com"
+                <a 
+                  href="https://instagram.com" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all"
@@ -1208,7 +1207,7 @@ function App() {
                 </a>
               </div>
             </div>
-          </div>
+            </div>
 
           {/* Divider */}
           <div className="border-t border-gray-300 my-8"></div>
