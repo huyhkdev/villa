@@ -791,16 +791,7 @@ function App() {
             >
               Gallery
             </h2>
-            <p
-              className="leading-relaxed"
-              style={{
-                fontSize: '14px',
-                color: '#3C3B40',
-                fontFamily: '"Barlow", sans-serif',
-              }}
-            >
-              Discover the vibrant activities and experiences that await you at our villa. From morning yoga sessions to cultural explorations, each moment is captured in our gallery of memories.
-            </p>
+          
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
@@ -953,7 +944,7 @@ function App() {
                   fontFamily: '"Barlow", sans-serif',
                 }}
               >
-                Based on 51 reviews
+                Based on guest reviews
               </p>
 
                   </div>
@@ -981,39 +972,39 @@ function App() {
               >
                 {[
                   {
-                    name: 'Cati N',
+                    name: 'Minh Nguyen',
                     time: '2 weeks ago',
-                    text: 'An amazing resort! If you are spending some days in Nusa Penida and you are looking for a...',
+                    text: 'Perfect escape from the city! The organic garden and cooking class were highlights of our stay. We learned to make authentic Bánh Xèo and brought home fresh herbs.',
                     avatar: 'photo-1507003211169-0a1dd7228f2d'
                   },
                   {
-                    name: 'carmen',
+                    name: 'Emily Wilson',
                     time: '3 weeks ago',
-                    text: 'Un havre de paix et de luxe au Seven Dream Nusa Penida Notre séjour au Seven...',
+                    text: 'Anis Villa exceeded all expectations! The biophilic design creates such a calming atmosphere. The candle making workshop was therapeutic and we loved the natural surroundings.',
                     avatar: 'photo-1494790108377-be9c29b29330'
                   },
                   {
-                    name: 'Jet12456809198',
-                    time: '3 weeks ago',
-                    text: 'Best ever Every thing was perfect the staff (especially artana ), the room, the view,...',
+                    name: 'Tuan Le',
+                    time: '1 month ago',
+                    text: 'Amazing family experience! Our kids loved the organic farming workshop. The staff were incredibly warm and the villas are beautifully designed with nature.',
                     avatar: 'photo-1500648767791-00dcc994a43e'
                   },
                   {
-                    name: 'Efinda A',
-                    time: '3 weeks ago',
-                    text: 'Excellent I had an amazing stay at ANIS VILLA Villa! The resort is absolutely stunnin...',
+                    name: 'Lisa Anderson',
+                    time: '1 month ago',
+                    text: 'The most peaceful retreat in Da Nang! Every detail is thoughtfully designed. The soap making workshop and the connection to nature made this stay unforgettable.',
                     avatar: 'photo-1438761681033-6461ffad8d80'
                   },
                   {
-                    name: 'Sarah Johnson',
-                    time: '1 month ago',
-                    text: 'An absolute paradise! The villa was immaculate.',
+                    name: 'Hoang Pham',
+                    time: '2 months ago',
+                    text: 'Stayed at Healing Villa - absolutely stunning! The natural materials, fresh air, and organic garden created the perfect wellness escape. Highly recommend!',
                     avatar: 'photo-1544005313-94ddf0286df2'
                   },
                   {
-                    name: 'Michael Chen',
-                    time: '1 month ago',
-                    text: 'Incredible hospitality and attention to detail.',
+                    name: 'Sophie Martin',
+                    time: '2 months ago',
+                    text: 'Incredible hospitality and attention to detail. The leaf printing workshop was so creative! Anis Villa is a hidden gem where you truly reconnect with nature.',
                     avatar: 'photo-1506794778202-cad84cf45f1d'
                   },
                 ].map((review) => (
